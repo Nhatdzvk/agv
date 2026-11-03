@@ -1,0 +1,90 @@
+<?xml version="1.0"?>
+
+<package format="3">
+  <name>factory_delivery_amr_description</name>
+  <version>0.1.0</version>
+
+  <description>
+    Factory Delivery AMR robot description, RViz visualization,
+    dynamic lift mechanism visualization, and Gazebo Sim integration.
+  </description>
+
+  <maintainer email="nhat@example.com">
+    Nguyen Xuan Nhat
+  </maintainer>
+
+  <license>Apache-2.0</license>
+
+  <!-- ================================================================ -->
+  <!-- BUILD SYSTEM                                                     -->
+  <!-- ================================================================ -->
+
+  <buildtool_depend>ament_cmake</buildtool_depend>
+
+
+  <!-- ================================================================ -->
+  <!-- ROBOT DESCRIPTION                                                -->
+  <!-- ================================================================ -->
+
+  <exec_depend>xacro</exec_depend>
+  <exec_depend>urdf</exec_depend>
+
+  <exec_depend>robot_state_publisher</exec_depend>
+  <exec_depend>joint_state_publisher</exec_depend>
+  <exec_depend>joint_state_publisher_gui</exec_depend>
+
+
+  <!-- ================================================================ -->
+  <!-- RVIZ2                                                            -->
+  <!-- ================================================================ -->
+
+  <exec_depend>rviz2</exec_depend>
+
+
+  <!-- ================================================================ -->
+  <!-- PYTHON SCISSOR-LIFT VISUALIZER                                   -->
+  <!-- ================================================================ -->
+
+  <exec_depend>rclpy</exec_depend>
+  <exec_depend>sensor_msgs</exec_depend>
+  <exec_depend>visualization_msgs</exec_depend>
+
+
+  <!-- ================================================================ -->
+  <!-- COMMON ROS 2 MESSAGES                                            -->
+  <!-- ================================================================ -->
+
+  <exec_depend>geometry_msgs</exec_depend>
+  <exec_depend>nav_msgs</exec_depend>
+  <exec_depend>std_msgs</exec_depend>
+  <exec_depend>rosgraph_msgs</exec_depend>
+
+
+  <!-- ================================================================ -->
+  <!-- GAZEBO SIM INTEGRATION                                           -->
+  <!-- ================================================================ -->
+
+  <exec_depend>ros_gz_sim</exec_depend>
+  <exec_depend>ros_gz_bridge</exec_depend>
+
+
+  <!-- ================================================================ -->
+  <!-- PACKAGE EXPORT                                                   -->
+  <!-- ================================================================ -->
+
+  <export>
+    <build_type>ament_cmake</build_type>
+
+    <!--
+      Add the parent of this package share directory to
+      GZ_SIM_RESOURCE_PATH.
+
+      This lets Gazebo resolve package resources such as:
+      package://factory_delivery_amr_description/meshes/...
+      package://factory_delivery_amr_description/models/...
+    -->
+    <gazebo_ros
+      gazebo_model_path="${prefix}/../"/>
+  </export>
+
+</package>
